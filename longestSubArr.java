@@ -52,10 +52,34 @@ public class longestSubArr {
 
     }
 
+    static int optimal(int[] a, int k){  //two pointer approach => optimal for the case when all the elements are non-zero, positive 
+        int left=0, right = 0;
+        int sum = a[0];
+        int maxLen = 0;
+        while(right < a.length){
+            while(left<=right && sum>k){   //if sum exceeds the given value then trim from behind;
+                sum -= a[left];
+                left++;
+            }
+
+            if(sum==k){
+                maxLen = Math.max(maxLen, right-left +1);
+            }
+            
+            right ++;
+            if(right<a.length)sum+=a[right];
+
+        }
+        return maxLen;
+
+    }
+
     public static void main(String[] args) {
         int a = subArr(new int[]{2,3,5,1,1,1,1,-1,2,2,2,9}, 9);
         int b = longestSub(new int[]{2,3,5,1,1,1,1,2,2,2,-1,9}, 4);
-        System.out.println(a +" "+b);
+        int c = optimal(new int[]{2,3,5,1,1,1,1,2,2,2,9}, 9);
+
+        System.out.println(a +" "+b+" "+c);
     }
     
 }
