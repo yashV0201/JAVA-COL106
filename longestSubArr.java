@@ -25,7 +25,7 @@ public class longestSubArr {
         return c_max;
     }
 
-    static int longestSub(int[] arr, int k ){ // approach: using hashing and reverse mathematics
+    static int longestSub(int[] arr, int k ){       // approach: using hashing and reverse mathematics
         Map<Integer, Integer> hm = new HashMap<>();
         int maxLen=0;
         int sum = 0;
