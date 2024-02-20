@@ -46,9 +46,9 @@ public class kokoEatingBananas {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        //int h = sc.nextInt();
+        int h = sc.nextInt();
 
-        int a = optimal(new int[]{30,11,23,4,20},6);
+        int a = optimal(new int[]{30,11,23,4,20},h);
         System.out.println(a);
     }
     
