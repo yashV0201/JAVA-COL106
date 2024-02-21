@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class shipWhithinDays {
     static int optimal(int[]a, int d){
         
@@ -46,8 +48,11 @@ public class shipWhithinDays {
     }
 
     public static void main(String[] args) {
-        int a = optimal(new int[]{1,2,3,1,1},4);
-        System.out.println(a);
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter no. of days: ");
+        int d = sc.nextInt();
+        int a = optimal(new int[]{1,2,3,1,1},d);
+        System.out.println("Maximum capacity of ship to deliver within"+" "+d+" days: "+a);
     }
     
 }
