@@ -9,7 +9,7 @@ public class findingPeakElement {
         while(low<=high){
             int mid = (low+high)/2;
             if(a[mid]>a[mid-1]&& a[mid]>a[mid+1]){ind = mid; break;}
-            else if(a[mid]>a[mid-1]){
+            else if(a[mid]<a[mid+1]){
                 low = mid+1;
             }
 

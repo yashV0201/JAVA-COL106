@@ -14,7 +14,7 @@ public class shipWhithinDays {
         int low =max, high = sum, ans = -1;
 
         while(low<=high){
-            int mid = (low+high)/2, k = mid, count = 0, x= 0;
+            int mid = (low+high)/2, k = mid, count = 0, x= 1;
 
             for(int i =0; i<n; i++){
                 count+=a[i];
@@ -29,7 +29,7 @@ public class shipWhithinDays {
 
             }
 
-            if(count>0) x++;
+            //if(count>0) x++;
 
 
             
