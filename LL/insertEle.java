@@ -57,6 +57,7 @@ public class insertEle{
 
     //----------->>> INSERTING ELEMENT AT A GIVEN POSITION <<<<----------//
     static Node insertPos(Node head, int val, int k){
+        if(head == null && k>1) return null;
 
         if(k==1){
             Node newest = new Node(val);
@@ -66,19 +67,23 @@ public class insertEle{
         }
 
         int count =0;
-        Node temp = head, prev = null;
+        Node temp = head, prev = temp;
+
         while(temp != null){
             count++;
             if(count == k){
                 prev.next = new Node(val);
                 prev.next.next = temp;
-                break;
+                return head;
             }
             prev= temp;
             temp = temp.next;
 
 
         }
+        prev.next= new Node(val);
+
+
         return head;
 
     }
@@ -101,7 +106,7 @@ public class insertEle{
         
         head = insertHead(head, 0);   //insert at head
         head = insertTail(head, 8);   //insert at tail
-        head = insertPos(head, 9, 1);  //insert element at a given position
+        head = insertPos(head, 9, 10);  //insert element at a given position
 
 
 
