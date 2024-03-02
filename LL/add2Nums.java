@@ -81,11 +81,44 @@ public class add2Nums {
 
     }
 
+    static Node Add(Node h1, Node h2){
+        Node t1 = h1, t2 = h2;
+        Node dummy = new Node(-1);           // needed a new list so we created a dummy node
+        Node curr = dummy;                 // updating list using a "current" node
+        int carry =0;
+        while(t1 != null || t2 != null){
+            int sum = carry;
+            if(t1 != null) sum += t1.data;
+            if(t2 != null) sum += t2.data;
+
+            Node temp = new Node(sum%10);
+            curr.next = temp;
+            curr = curr.next;
+
+            carry = sum/10;
+
+            if(t1 != null) t1 = t1.next;
+            if(t2 != null) t2 = t2.next;
+        }
+
+        if(carry != 0){
+            Node temp = new Node(carry);
+            curr.next = temp;
+            curr = curr.next;
+        }
+
+
+        return dummy.next;
+    }
+
+
+
+
     public static void main(String[] args) {
-        Node head1 = arrtoLL(new int[]{9,9});
+        Node head1 = arrtoLL(new int[]{9,9,1});
         Node head2 = arrtoLL(new int[]{9,9});
 
-        Node head = add(head1, head2);
+        Node head = Add(head1, head2);
 
         print(head);
         
