@@ -52,16 +52,16 @@ public class reverseALL {
     static Node optimal2(Node head){                     /// changing the links method
         if(head==null || head.next == null) return head;
         Node prev = null, temp = head;
-        while(temp.next != null){
+        while(temp != null){
             Node next = temp.next;
             temp.next = prev;
             prev = temp;
             temp = next;
         }
 
-        temp.next = prev;
+        
 
-        return temp;
+        return prev;
     }
 
     public static void main(String[] args) {
