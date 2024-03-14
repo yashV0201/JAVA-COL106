@@ -90,10 +90,37 @@ public class doublyLLBasics {
         return head;
 
     }
+    static Node delOcc(Node head, int k){
+        Node temp =head;
+        while(temp != null){
+           if(temp.data ==k){
+               if(temp.previous == null){
+                   head.next.previous = null;
+                   head = head.next;
+                   temp = temp.next;
+               }
+               else if(temp.next == null){
+                   temp.previous.next = null;
+                   temp.previous = null;
+                   temp = temp.next;
+               }
+               else{
+                   temp.previous.next = temp.next;
+                   temp.next.previous= temp.previous;
+                   temp.previous = null;
+                   temp = temp.next;
+
+               }
+            }
+            else temp = temp.next;
+        }
+
+        return head;
+    }
 
 
     public static void main(String[] args) {
-        int[] a = {2,4,6,8,13,11};
+        int[] a = {10,2,4,6,10,13,10};
         Node head = new Node(a[0]);
 
         Node prev = head;  
@@ -109,7 +136,8 @@ public class doublyLLBasics {
 
         //head = delHead(head);
         //head = delTail(head);
-        head = delAtPos(head, 1);
+        //head = delAtPos(head, 1);
+        head = delOcc(head, 10);
 
 
         print(head);
