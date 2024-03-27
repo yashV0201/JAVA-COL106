@@ -54,7 +54,7 @@ public class N_Queens_sol {
     }
 
     public static void main(String[] args) {
-        int n = 5;
+        int n = 8;
         List<List<String>> res = queens(n);
         for(List<String> ele : res){
             for(String s:ele){
