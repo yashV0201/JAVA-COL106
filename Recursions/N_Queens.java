@@ -73,7 +73,7 @@ public class N_Queens {
 
 
     public static void main(String[] args) {
-        int N =4;
+        int N =5;
         ArrayList<int[]> list = new ArrayList<>();
         HashSet<ArrayList<ArrayList<String>>> fin = new HashSet<>();
 
