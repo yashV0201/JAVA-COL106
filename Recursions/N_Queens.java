@@ -5,6 +5,11 @@ import java.util.HashSet;
 public class N_Queens {
 
     static boolean helper(ArrayList<int[]> list, int i, int j){
+        /* this function is used to check if it is possible to place a queen at a particular position
+         * this is done by checking if it is not lying in the path of previous queens
+         * path of previous queens is defined by(let i and j be indices) x=i, y=j(for row and col) and x-i = j-y(for diagonals)
+         * so this gives true if queen lies in the path of previous queens and we do not place the queen there
+         */
         if(list.size() == 0) return true;
         boolean ans = false;
         for(int[] arr: list){
@@ -16,7 +21,10 @@ public class N_Queens {
     }
 
     static void posns(int N, int n,int x, int y, ArrayList<int[]> list,HashSet<ArrayList<ArrayList<String>>> fin){
-        
+        /* approach taken is place queens one by one and store their attack path information 
+         * before placing the next queen check if it is possible to place using the helper function
+         * 
+        */
         if(x==N && y==N){
             if(n==0){
                 ArrayList<ArrayList<String>> ans = new ArrayList<>();
@@ -61,6 +69,8 @@ public class N_Queens {
                 
         }
     }
+
+
 
     public static void main(String[] args) {
         int N =4;
