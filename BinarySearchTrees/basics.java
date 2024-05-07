@@ -139,16 +139,16 @@ public class basics {
             root = insert(root,ele);
         }
 
-        insert(root,6);
-        // levelOrder(root);
+        // insert(root,6);
+        //  levelOrder(root);
 
-        // inorder(root);
+        //inorder(root);
         // System.out.println(search(root,6));
 
         //delete(root, 3);
         // inorder(root);
 
-        printRootToLeaf(root, new ArrayList<>());
+        //printRootToLeaf(root, new ArrayList<>());
 
     }
 }
