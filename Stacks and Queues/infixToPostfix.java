@@ -44,20 +44,33 @@ public class infixToPostfix {
 
     static String postfixToInfix(String exp){
         String ans = "";
-        Stack<Character> st = new Stack<>();
+
+        Stack<String> st = new Stack<>();
+        for(int i = exp.length()-1;i>=0;i--){
+            ans+=exp.charAt(i);
+        }
+        exp = ans;
+        ans = "";
+        
         for(char ch : exp.toCharArray()){
-            if(Character.isLetterOrDigit(ch)) ans+=ch;
+            if(Character.isLetterOrDigit(ch)){
+                String temp = ""+ch;
+                st.push(temp);
+            }
             else{
-                if()
+                ans = "("+st.pop()+ch+st.pop()+")";
+                st.push(ans);
             }
         }
 
-        return ans;
+        ans = st.pop();
+        return ans; 
     }
 
 
     public static void main(String[] args) {
-        String s = "a+b*(c^d-e)^(f+g*h)-i";
+        String s = "a+b-c";
         System.out.println(optimal(s));
+        System.out.println(postfixToInfix("/-ab+-cde"));
     }
 }
