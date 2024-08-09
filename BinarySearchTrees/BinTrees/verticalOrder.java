@@ -47,17 +47,19 @@ public class verticalOrder {
     static void verticalOrd(Node root, int x, int y, TreeMap<Integer, TreeMap<Integer, PriorityQueue<Integer>>> verticals){
         if(root == null) return;
 
+        
+
+        //go to left subtree
+        verticalOrd(root.left, x-1, y+1, verticals);
+
+        //this node
         if(verticals.get(x) == null){
             verticals.put(x,new TreeMap<>());
         }
         if(!verticals.get(x).containsKey(y)){
             verticals.get(x).put(y, new PriorityQueue<>());
         }
-
-        //go to left subtree
-        verticalOrd(root.left, x-1, y+1, verticals);
-
-        //this node
+        
         verticals.get(x).get(y).offer(root.val);
 
         //right node
